@@ -1,0 +1,3 @@
+1. backbone in ui, update colectiosn after serach form elastic serach 
+2. profile updates, upload food goes to kafka -> (mysql, also items are indexed to elastic search)
+3. payment has to be done on delivery, no payment integration in first phase.

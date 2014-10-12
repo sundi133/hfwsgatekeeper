@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+
+<!-- Basic Page Needs
+  ================================================== -->
+<meta charset="utf-8">
+<title>HomePhood</title>
+<meta name="description"
+	content="home delivery food network, online order, good food">
+<meta name="author" content="">
+
+<!-- Mobile Specific Metas
+  ================================================== -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<!-- CSS
+  ================================================== -->
+<link rel="stylesheet" href="assets/stylesheets/base.css">
+<link rel="stylesheet" href="assets/stylesheets/skeleton.css">
+<link rel="stylesheet" href="assets/stylesheets/layout.css">
+
+<!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+<!-- Favicons
+        ================================================== -->
+<link rel="shortcut icon" href="assets/images/favicon.ico">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72"
+	href="assets/images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114"
+	href="assets/images/apple-touch-icon-114x114.png">
+
+<link rel="stylesheet"
+	href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<style>
+nav.primary {
+	display: table;
+	margin: 0 auto;
+}
+
+nav.primary ul,nav.primary ul li {
+	margin: 0px;
+}
+
+nav.primary select {
+	display: none;
+	width: 100%;
+	height: 28px;
+	margin: 21px 0;
+}
+
+nav.primary ul li {
+	display: inline;
+	position: relative;
+}
+
+nav.primary ul li a {
+	display: inline-block;
+	line-height: 49px;
+	padding: 0 14px;
+	color: white;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: bold;
+	letter-spacing: 0.08em;
+	background: ##999999;
+}
+
+nav.primary ul li a:hover {
+	background: #2ecc71;
+	cursor: pointer;
+}
+
+/* Begin Navigation Bar Styling */
+#nav {
+	width: 100%;
+	float: left;
+	margin: 0 0 3em 0;
+	padding: 0;
+	list-style: none;
+	background-color: #90EE90;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+}
+
+#nav li {
+	float: right;
+}
+
+#nav li a {
+	display: block;
+	padding: 8px 15px;
+	text-decoration: none;
+	font-weight: bold;
+	color: #069;
+	border-right: 1px solid #ccc;
+}
+
+#nav li a:hover {
+	color: #c00;
+	background-color: #fff;
+}
+/* End navigation bar styling. */
+
+/* This is just styling for this specific page. */
+body {
+	background-color: #ffffff;
+	font: small/1.3 Arial, Helvetica, sans-serif;
+}
+
+#wrap {
+	width: 100%;
+	margin: 0 auto;
+	background-color: #fff;
+}
+
+h1 {
+	font-size: 1.5em;
+	padding: 1em 8px;
+	color: #333;
+	background-color: #069;
+	margin: 0;
+}
+
+#content {
+	padding: 0 50px 50px;
+}
+
+input {
+	width: 100%;
+	padding: .5em 1em;
+}
+
+button {
+	color: black;
+	padding: .5em 1em;
+	white-space: nowrap;
+	margin: 0 0 0 1em;
+}
+</style>
+
+</head>
+
+
+<body>
+
+	<div id="wrap">
+		<ul id="nav">
+			<li><a href="./listRecipe">List Your Recipe</a></li>
+			<li><a href="#">SignIn</a></li>
+			<li><a href="./signup">SignUp</a></li>
+            <a href="./"><img alt="./" src="assets/images/homeFoodLogo5.png" style="height: 50px; "></a>
+    	</ul>
+	</div>
+
+
+		<div class="container">
+			<form action="./createCook">
+				<fieldset>
+
+					<div class="sixteen columns">
+						<div class="five columns alpha">
+							<fieldset >
+								<legend style="font-size: 18px">Personal</legend>
+								<label for="apartment">Name</label> <input type="text"
+									id="apartment" name="apartment" /> <label for="billAddress">Email</label>
+								<input type="text" id="street" name="street" /> <label
+									for="city">Date of Birth</label> <input type="text" id="city"
+									name="city" /> 
+									
+									<label for="country">Gender</label> <input
+									type="text" id="country" name="country" /> 
+									
+									<label for="billPC">Deliver
+									Range<br />
+								</label> <select id="dRange">
+									<option value="2">Within 2 kms</option>
+									<option value="5">Within 5 kms</option>
+									<option value="10">Within 10 kms</option>
+									<option value="20">Within 20 kms</option>
+									<option value="100">Anywhere with HomePhood Network</option>
+								</select> <label for="space">&nbsp;</label> <label for="Married">Married</label>
+								<select id="married">
+									<option value="0">Yes</option>
+									<option value="1">No</option>
+								</select>
+
+							</fieldset>
+						</div>
+						<div class="five columns omega">
+							<fieldset>
+								<legend style="font-size: 18px">Address</legend>
+								<label for="country">Contact Number</label> <input
+                                    type="text" id="country" name="country" /> 
+                                    
+                                
+								<label for="apartment">Apartment</label> <input type="text"
+									id="apartment" name="apartment" /> <label for="billAddress">Street</label>
+								<input type="text" id="street" name="street" /> <label
+									for="city">City</label> <input type="text" id="city"
+									name="city" /> <label for="country">Country</label> <input
+									type="text" id="country" name="country" /> 
+									
+									<label for="billPC">Postal
+									Code</label> <input type="text" id="billPC" name="billPC" />
+									
+								
+							</fieldset>
+						</div>
+
+						<div class="five columns omega">
+							<fieldset>
+								<legend style="font-size: 18px">Availability Time</legend>
+								<label for="labelAvailableTimes"></label>
+								<table>
+									<tr>
+										<td>Time&nbsp;</td>
+										<td>Su&nbsp;</td>
+										<td>Mo&nbsp;</td>
+										<td>Tu&nbsp;</td>
+										<td>We&nbsp;</td>
+										<td>Th&nbsp;</td>
+										<td>Fr&nbsp;</td>
+										<td>Sa&nbsp;</td>
+									</tr>
+
+									<tr>
+										<td><a href="" title="Sun 0-1"> 6.00 AM </a></td>
+
+										<td><a href="" title="Sun 0-1"> <img
+												src="assets/images/icon-green-tick-small.png"> </img>
+										</a></td>
+										<td><a href="" title="Mon 0-1"> <img
+												src="assets/images/icon-green-untick-small.png"> </img>
+										</a></td>
+										<td><a href="" title="Tues 0-1"> <img
+												src="assets/images/icon-green-untick-small.png"> </img>
+										</a></td>
+										<td><a href="" title="Wed 0-1"> <img
+												src="assets/images/icon-green-untick-small.png"> </img>
+										</a></td>
+										<td><a href="" title="Thurs 0-1"> <img
+												src="assets/images/icon-green-untick-small.png"> </img>
+										</a></td>
+										<td><a href="" title="Fri 0-1"> <img
+												src="assets/images/icon-green-untick-small.png"> </img>
+										</a></td>
+										<td><a href="" title="Sun 0-1"> <img
+												src="assets/images/icon-green-untick-small.png"> </img>
+										</a></td>
+									</tr>
+
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"></a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"></a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"></a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"></a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"></a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                       <tr>
+                                        <td><a href="" title="Sun 0-1"> 12.00 PM </a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                       <tr>
+                                        <td><a href="" title="Sun 0-1"></a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"></a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"></a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"></a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"></a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"> 6.00 PM </a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"></a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"></a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"></a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"></a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"></a></td>
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+                                  
+                                    <tr>
+                                        <td><a href="" title="Sun 0-1"> 11.59 PM </a></td>
+
+
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-tick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Mon 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Tues 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Wed 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Thurs 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Fri 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                        <td><a href="" title="Sun 0-1"> <img
+                                                src="assets/images/icon-green-untick-small.png"> </img>
+                                        </a></td>
+                                    </tr>
+
+                                    								
+								</table>
+							</fieldset>
+						</div>
+					</div>
+					<div align="right">
+						
+						 <a href="create()" class="button">Submit Application</a>
+					     <a href="signin()" class="button">SignIn (If Already Registered)</a>
+                    
+						<label for="check">(Note*** Please Confirm Your Details Before Submission to help us authorize the account)</label>
+                    </div>
+				</fieldset>
+
+			</form>
+
+
+		</div>
+</body>
+</html>

@@ -158,59 +158,40 @@ button {
 		<ul id="nav">
 			<li><a href="./listRecipe">List Your Recipe</a></li>
 			<li><a href="#">SignIn</a></li>
-			<li><a href="./signup">SignUp</a></li>
+			<li><a href="#">SignUp</a></li>
 			<a href="./"><img alt="./" src="assets/images/homeFoodLogo5.png"
 				style="height: 50px;"></a>
 		</ul>
 	</div>
 
-	<center>
-		
-		<div class="container">
-		<div>
-		<form action="./search">
-            <input type="text" class="large"
-                placeholder="Type Your Address Here ..." />
-            <button>Search Food in Your Area</button>
-        </form>
-        </div>
-				<div class="five columns omega">
+     	<div class="container">
+			<form action="./createCook">
+				<div class="sixteen columns">
+				
+                <div class="nine columns alpha">&nbsp;
+                <img alt="" src="assets/images/food_image.png" style="height: 100%; width:100%">
+                </div>
+                
+				<div class="six columns omega">
 					<fieldset>
-						<legend style="font-size: 12px">Check Out our Favourite
-							Chefs</legend>
-						<img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/1/1938/small.png?1318258804"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/1/1938/small.png?1318258804"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/1/1938/small.png?1318258804"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757"
-							alt="avatar" />
+						<legend style="font-size: 18px">Register</legend>
+						<label for="apartment">Name</label> <input type="text"
+							id="apartment" name="apartment" /> <label for="billAddress">Email</label>
+						<input type="text" id="street" name="street" /> <label for="city">Date
+							of Birth</label> <input type="text" id="city" name="city" /> <label
+							for="country">Gender</label> <select id="gender">
+							<option value="0">Male</option>
+							<option value="1">Female</option>
+						  </select> <label for="space">&nbsp;</label> 
+						</select> <a href="create()" class="button">Cancel</a> <a href="create()"
+							class="button">Register</a>
 					</fieldset>
-				</div>
-			
+					</div>
+					</div>
+			</form>
 
 
 		</div>
-
-	</center>
-
+		
 </body>
 </html>

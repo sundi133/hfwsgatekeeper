@@ -15,8 +15,6 @@ public class Cooks {
 	int cookRating;
 	String[] cookRatingComments;
 	long[] consumersRated;
-	
-	
 	int[] availDays = new int[7];
 	int[][] availHours = new int[24][7];
 	
