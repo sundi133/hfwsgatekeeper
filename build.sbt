@@ -7,7 +7,8 @@ version := "1.0-SNAPSHOT"
 libraryDependencies ++= Seq(
   javaJdbc,
   javaEbean,
-  cache
+  cache,
+  "redis.clients" % "jedis" % "2.0.0"
   )     
 
 playJavaSettings
