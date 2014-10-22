@@ -33,13 +33,12 @@ public class  Global extends GlobalSettings {
 			connectionPool.setDriverClassName("org.postgresql.Driver");
 			connectionPool.setUrl(dbUrl);
 			connectionPool.setInitialSize(10);
-			controllers.HomeFoodGateKeeperService.pool = connectionPool;
+			controllers.HomeFoodGateKeeperService.connectionPool = connectionPool;
 			Logger.info("Connection pool successfully initialized.");
 			System.out.println("Connection pool successfully initialized.");
 		} catch (Exception e) {
 			Logger.error("Connection pool could  not be initialized.", e);
 			System.out.println("Connection pool could  not be initialized.");
-			controllers.HomeFoodGateKeeperService.pool = null;
 		}
 	}
 }

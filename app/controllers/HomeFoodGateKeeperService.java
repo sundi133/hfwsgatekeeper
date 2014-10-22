@@ -35,11 +35,13 @@ import play.data.Form.*;
 import java.sql.*;
 
 import org.apache.commons.dbcp.*;
-import org.eclipse.jetty.util.log.Log;
 
 public class HomeFoodGateKeeperService extends Controller implements GlobalSettings {
 
-	public static BasicDataSource pool;
+	public static BasicDataSource connectionPool=null;
+	
+	
+	
 	public static Result index() {
 		return ok(index.render());
 	}
@@ -66,7 +68,8 @@ public class HomeFoodGateKeeperService extends Controller implements GlobalSetti
 				mc.setName(name);
 			}
 			try{
-				Connection connection = pool.getConnection();
+				init();
+				Connection connection = connectionPool.getConnection();
 				Statement stmt = connection.createStatement();
 				stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
 				stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
@@ -87,6 +90,30 @@ public class HomeFoodGateKeeperService extends Controller implements GlobalSetti
 		}else{
 			return ok(failure.render());
 
+		}
+	}
+
+	private static void init() {
+		if(connectionPool!=null)
+			return;
+		try {
+
+			URI dbUri = new URI(System.getenv("DATABASE_URL"));
+			String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath();
+			connectionPool = new BasicDataSource();
+
+			if (dbUri.getUserInfo() != null) {
+				connectionPool.setUsername(dbUri.getUserInfo().split(":")[0]);
+				connectionPool.setPassword(dbUri.getUserInfo().split(":")[1]);
+			}
+			connectionPool.setDriverClassName("org.postgresql.Driver");
+			connectionPool.setUrl(dbUrl);
+			connectionPool.setInitialSize(10);
+			Logger.info("Connection pool successfully initialized.");
+			System.out.println("Connection pool successfully initialized.");
+		} catch (Exception e) {
+			Logger.error("Connection pool could  not be initialized.", e);
+			System.out.println("Connection pool could  not be initialized.");
 		}
 	}
 
@@ -180,7 +207,8 @@ public class HomeFoodGateKeeperService extends Controller implements GlobalSetti
 
 	@Override
 	public void onStart(Application arg0) {
-		Log.info("onStart test");		
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
