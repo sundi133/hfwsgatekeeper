@@ -7,6 +7,7 @@ import views.html.*;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+import java.io.File;
 import java.net.URI;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -14,15 +15,29 @@ import java.util.Map.Entry;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.Protocol;
+import scala.Enumeration.Value;
+import scala.Function1;
+import scala.Option;
+import scala.Tuple2;
+import scala.concurrent.Future;
+import play.api.Application;
+import play.api.Configuration;
+import play.api.GlobalSettings;
 import play.api.libs.json.* ;
+import play.api.mvc.EssentialAction;
+import play.api.mvc.Handler;
+import play.api.mvc.RequestHeader;
+import play.api.mvc.SimpleResult;
 import play.data.DynamicForm;
 import play.data.Form;
 import play.data.Form.*;
-import java.sql.*;
-import org.apache.commons.dbcp.*;
-import org.apache.commons.dbcp.BasicDataSource;
 
-public class HomeFoodGateKeeperService extends Controller {
+import java.sql.*;
+
+import org.apache.commons.dbcp.*;
+import org.eclipse.jetty.util.log.Log;
+
+public class HomeFoodGateKeeperService extends Controller implements GlobalSettings {
 
 	public static BasicDataSource pool;
 	public static Result index() {
@@ -87,6 +102,91 @@ public class HomeFoodGateKeeperService extends Controller {
 
 	public static Result signin(){
 		return ok(signin.render());
+	}
+
+	@Override
+	public void beforeStart(Application arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Configuration configuration() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Function1<RequestHeader, Handler> doFilter(
+			Function1<RequestHeader, Handler> arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public EssentialAction doFilter(EssentialAction arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <A> A getControllerInstance(Class<A> arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Future<SimpleResult> onBadRequest(RequestHeader arg0, String arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Future<SimpleResult> onError(RequestHeader arg0, Throwable arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Future<SimpleResult> onHandlerNotFound(RequestHeader arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Configuration onLoadConfig(Configuration arg0, File arg1,
+			ClassLoader arg2, Value arg3) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void onRequestCompletion(RequestHeader arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Tuple2<RequestHeader, Handler> onRequestReceived(RequestHeader arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Option<Handler> onRouteRequest(RequestHeader arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void onStart(Application arg0) {
+		Log.info("onStart test");		
+	}
+
+	@Override
+	public void onStop(Application arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
