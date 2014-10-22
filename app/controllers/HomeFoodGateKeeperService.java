@@ -21,10 +21,6 @@ import play.data.Form.*;
 import java.sql.*;
 import org.apache.commons.dbcp.*;
 import org.apache.commons.dbcp.BasicDataSource;
-class User {
-	public String Name;
-	public String Email;
-}
 
 public class HomeFoodGateKeeperService extends Controller {
 
