@@ -38,6 +38,8 @@ import org.apache.commons.dbcp.*;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
+import org.elasticsearch.common.settings.ImmutableSettings;
+import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 
 //http://www.tutorialspoint.com/postgresql/postgresql_java.htm
@@ -45,9 +47,9 @@ import org.elasticsearch.common.transport.InetSocketTransportAddress;
 public class HomeFoodGateKeeperService extends Controller {
 
 	public static BasicDataSource connectionPool=null;
-	
-	
-	
+
+
+
 	public static Result index() {
 		return ok(index.render());
 	}
@@ -80,22 +82,24 @@ public class HomeFoodGateKeeperService extends Controller {
 				stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
 				stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
 				ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-				
-				Client client = new TransportClient()
-		        .addTransportAddress(new InetSocketTransportAddress("spruce-7122461.us-east-1.bonsai.io", 443))
-		        ;
-		       
+
+				Settings settings = ImmutableSettings.settingsBuilder()
+						.put("cluster.name", "myClusterName").build();
+				Client client =    new TransportClient(settings)
+				.addTransportAddress(new InetSocketTransportAddress("spruce-7122461.us-east-1.bonsai.io", 443))
+				;
+
 				String json = "{" +
-				        "\"user\":\"kimchy\"," +
-				        "\"postDate\":\"2013-01-30\"," +
-				        "\"message\":\"trying out Elasticsearch\"" +
-				    "}";
-				
+						"\"user\":\"kimchy\"," +
+						"\"postDate\":\"2013-01-30\"," +
+						"\"message\":\"trying out Elasticsearch\"" +
+						"}";
+
 				IndexResponse response = client.prepareIndex("twitter", "tweet")
-				        .setSource(json)
-				        .execute()
-				        .actionGet();
-				
+						.setSource(json)
+						.execute()
+						.actionGet();
+
 				client.close();
 				while (rs.next()) {
 					System.out.println("Read from DB: " + rs.getTimestamp("tick") + "\n");
