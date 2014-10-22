@@ -36,7 +36,7 @@ import java.sql.*;
 
 import org.apache.commons.dbcp.*;
 
-public class HomeFoodGateKeeperService extends Controller implements GlobalSettings {
+public class HomeFoodGateKeeperService extends Controller {
 
 	public static BasicDataSource connectionPool=null;
 	
@@ -120,7 +120,6 @@ public class HomeFoodGateKeeperService extends Controller implements GlobalSetti
 	private static boolean  createChefAttempt(Request request) {
 
 		return false;
-
 	}
 
 	public static Result signup(){
@@ -129,92 +128,6 @@ public class HomeFoodGateKeeperService extends Controller implements GlobalSetti
 
 	public static Result signin(){
 		return ok(signin.render());
-	}
-
-	@Override
-	public void beforeStart(Application arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Configuration configuration() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Function1<RequestHeader, Handler> doFilter(
-			Function1<RequestHeader, Handler> arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public EssentialAction doFilter(EssentialAction arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <A> A getControllerInstance(Class<A> arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Future<SimpleResult> onBadRequest(RequestHeader arg0, String arg1) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Future<SimpleResult> onError(RequestHeader arg0, Throwable arg1) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Future<SimpleResult> onHandlerNotFound(RequestHeader arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Configuration onLoadConfig(Configuration arg0, File arg1,
-			ClassLoader arg2, Value arg3) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void onRequestCompletion(RequestHeader arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Tuple2<RequestHeader, Handler> onRequestReceived(RequestHeader arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Option<Handler> onRouteRequest(RequestHeader arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void onStart(Application arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onStop(Application arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
