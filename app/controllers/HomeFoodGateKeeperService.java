@@ -80,8 +80,9 @@ public class HomeFoodGateKeeperService extends Controller {
 				stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
 				stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
 				ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+				
 				Client client = new TransportClient()
-		        .addTransportAddress(new InetSocketTransportAddress("ihscrydx:lujdwgoxxdpc03p7@spruce-7122461.us-east-1.bonsai.io", 443))
+		        .addTransportAddress(new InetSocketTransportAddress("spruce-7122461.us-east-1.bonsai.io", 443))
 		        ;
 		       
 				String json = "{" +
