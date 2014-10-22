@@ -1,6 +1,6 @@
 package controllers;
 
-public class Cooks {
+public class MasterChef {
 	long[] dishIds;
 	String name;
 	int age;

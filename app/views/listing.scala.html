@@ -1,3 +1,5 @@
+@import helper._
+@import helper.twitterBootstrap._
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -45,7 +47,7 @@
 <style>
 nav.primary {
 	display: table;
-	margin: 0 auto;
+	margin: 10 auto;
 }
 
 nav.primary ul,nav.primary ul li {
@@ -155,72 +157,83 @@ button {
 <body>
 
 	<div id="wrap">
-		<ul id="nav">
-			<li><a href="./listRecipe">List Your Recipe</a></li>
-			<li><a href="#">SignIn</a></li>
-			<li><a href="./signup">SignUp</a></li>
-            <a href="./"><img alt="./" src="assets/images/homeFoodLogo5.png" style="height: 50px; "></a>
-    	</ul>
-	</div>
+        <ul id="nav">
+        
+           <li><a href="./listRecipe">List Recipe</a></li>
+           <li> <a href="./signup">SignIn / SignUp</a></li>
+           
+            <a href="./"><img alt="./" src="assets/images/homeFoodLogo5.png"
+                style="height: 50px;"></a>
+        </ul>
+    </div>
 
 
 		<div class="container">
-			<form action="./createCook">
+		
+		
+		<form method="POST" action="@routes.HomeFoodGateKeeperService.createChef()">
 				<fieldset>
 
 					<div class="sixteen columns">
 						<div class="five columns alpha">
 							<fieldset >
-								<legend style="font-size: 18px">Personal</legend>
-								<label for="apartment">Name</label> <input type="text"
-									id="apartment" name="apartment" /> <label for="billAddress">Email</label>
-								<input type="text" id="street" name="street" /> <label
-									for="city">Date of Birth</label> <input type="text" id="city"
-									name="city" /> 
+								<legend style="font-size: 18px">Who You Are</legend>
+								<label for="name">Name</label> 
+								<input type="text" id="name" name="name" /> 
+								
+								<label for="email">Email</label>
+								<input type="text" id="email" name="email" /> 
+								
+								<label for="dob">Date of Birth</label> 
+								<input type="text" id="dob" name="dob" /> 
 									
-									<label for="country">Gender</label> <input
-									type="text" id="country" name="country" /> 
+								<label for="gender">Gender</label> 
+								<input type="text" id="gender" name="gender" /> 
 									
-									<label for="billPC">Deliver
-									Range<br />
-								</label> <select id="dRange">
+									
+								<label for="dRange">Deliver Range<br/></label> 
+							    <input type="text" id="dRange" name="dRange" /> 
+                            
+								<!-- select id="dRange" name="dRange">
 									<option value="2">Within 2 kms</option>
 									<option value="5">Within 5 kms</option>
 									<option value="10">Within 10 kms</option>
 									<option value="20">Within 20 kms</option>
 									<option value="100">Anywhere with HomePhood Network</option>
-								</select> <label for="space">&nbsp;</label> <label for="Married">Married</label>
-								<select id="married">
-									<option value="0">Yes</option>
-									<option value="1">No</option>
-								</select>
-
+								</select> -->
+								 <label for="married">Married</label>
+								 <input type="text" id="married" name="married" /> 
+                            
 							</fieldset>
 						</div>
-						<div class="five columns omega">
+						<div class="six columns omega">
 							<fieldset>
-								<legend style="font-size: 18px">Address</legend>
-								<label for="country">Contact Number</label> <input
-                                    type="text" id="country" name="country" /> 
+								<legend style="font-size: 18px">Where You Live</legend>
+								<label for="phone">Contact Number</label> 
+								<input type="text" id="phone" name="phone" /> 
                                     
-                                
-								<label for="apartment">Apartment</label> <input type="text"
-									id="apartment" name="apartment" /> <label for="billAddress">Street</label>
-								<input type="text" id="street" name="street" /> <label
-									for="city">City</label> <input type="text" id="city"
-									name="city" /> <label for="country">Country</label> <input
-									type="text" id="country" name="country" /> 
+								<label for="apartment">Apartment</label> 
+								<input type="text" id="apartment" name="apartment" /> 
+								
+								<label for="Street">Street</label>
+								<input type="text" id="street" name="street" /> 
+								
+								<label for="city">City</label> 
+								<input type="text" id="city" name="city" /> 
 									
-									<label for="billPC">Postal
-									Code</label> <input type="text" id="billPC" name="billPC" />
+								<label for="country">Country</label> 
+								<input type="text" id="country" name="country" /> 
 									
+								<label for="pincode">Postal Code</label> 
+								<input type="text" id="pincode" name="pincode" />
 								
 							</fieldset>
 						</div>
 
 						<div class="five columns omega">
 							<fieldset>
-								<legend style="font-size: 18px">Availability Time</legend>
+								<legend style="font-size: 18px">Whats Your Availability</legend>
+								<input type="hidden" name="availability">
 								<label for="labelAvailableTimes"></label>
 								<table>
 									<tr>
@@ -235,7 +248,7 @@ button {
 									</tr>
 
 									<tr>
-										<td><a href="" title="Sun 0-1"> 6.00 AM </a></td>
+										<td><a href="#" title="Sun 0-1"> 6.00 AM </a></td>
 
 										<td><a href="" title="Sun 0-1"> <img
 												src="assets/images/icon-green-tick-small.png"> </img>
@@ -387,7 +400,7 @@ button {
                                         </a></td>
                                     </tr>
                                        <tr>
-                                        <td><a href="" title="Sun 0-1"> 12.00 PM </a></td>
+                                        <td><a href="#" title="Sun 0-1"> 12.00 PM </a></td>
 
                                         <td><a href="" title="Sun 0-1"> <img
                                                 src="assets/images/icon-green-tick-small.png"> </img>
@@ -537,7 +550,7 @@ button {
                                         </a></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="" title="Sun 0-1"> 6.00 PM </a></td>
+                                        <td><a href="#" title="Sun 0-1"> 6.00 PM </a></td>
 
                                         <td><a href="" title="Sun 0-1"> <img
                                                 src="assets/images/icon-green-tick-small.png"> </img>
@@ -688,7 +701,7 @@ button {
                                     </tr>
                                   
                                     <tr>
-                                        <td><a href="" title="Sun 0-1"> 11.59 PM </a></td>
+                                        <td><a href="#" title="Sun 0-1"> 11.59 PM </a></td>
 
 
                                         <td><a href="" title="Sun 0-1"> <img
@@ -717,19 +730,20 @@ button {
                                     								
 								</table>
 							</fieldset>
+					
 						</div>
 					</div>
+					&nbsp;
 					<div align="right">
+					    <input type="submit" style="height: 20%; width: 50%" class="button" value="Submit Application">
+                        <a href="signin" class="button">SignIn (If Already Registered)</a>
+                    	
 						
-						 <a href="create()" class="button">Submit Application</a>
-					     <a href="signin()" class="button">SignIn (If Already Registered)</a>
-                    
-						<label for="check">(Note*** Please Confirm Your Details Before Submission to help us authorize the account)</label>
+						<label for="check">Note*** Please Confirm Your Details, We Love Chefs Who Get it Right in First Shot !!!</label>
                     </div>
 				</fieldset>
 
-			</form>
-
+        </form> 
 
 		</div>
 </body>
