@@ -13,6 +13,6 @@ libraryDependencies ++= Seq(
   ,"org.postgresql" % "postgresql" % "9.3-1100-jdbc4"
   ,"org.apache.commons" % "commons-dbcp2" % "2.0"
   ,"commons-dbcp" % "commons-dbcp" % "1.4"
-  )     
+  ,"org.elasticsearch" % "elasticsearch" % "1.0.3")     
 
 playJavaSettings

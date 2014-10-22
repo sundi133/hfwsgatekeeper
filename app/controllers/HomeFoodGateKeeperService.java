@@ -35,6 +35,12 @@ import play.data.Form.*;
 import java.sql.*;
 
 import org.apache.commons.dbcp.*;
+import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.client.Client;
+import org.elasticsearch.client.transport.TransportClient;
+import org.elasticsearch.common.transport.InetSocketTransportAddress;
+
+//http://www.tutorialspoint.com/postgresql/postgresql_java.htm
 
 public class HomeFoodGateKeeperService extends Controller {
 
@@ -74,6 +80,22 @@ public class HomeFoodGateKeeperService extends Controller {
 				stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
 				stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
 				ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+				Client client = new TransportClient()
+		        .addTransportAddress(new InetSocketTransportAddress("ihscrydx:lujdwgoxxdpc03p7@spruce-7122461.us-east-1.bonsai.io", 443))
+		        ;
+		       
+				String json = "{" +
+				        "\"user\":\"kimchy\"," +
+				        "\"postDate\":\"2013-01-30\"," +
+				        "\"message\":\"trying out Elasticsearch\"" +
+				    "}";
+				
+				IndexResponse response = client.prepareIndex("twitter", "tweet")
+				        .setSource(json)
+				        .execute()
+				        .actionGet();
+				
+				client.close();
 				while (rs.next()) {
 					System.out.println("Read from DB: " + rs.getTimestamp("tick") + "\n");
 				}
