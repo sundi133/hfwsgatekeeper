@@ -1,8 +1,11 @@
 package controllers;
 
 import play.*;
+import play.Logger.ALogger;
 import play.mvc.*;
+import play.mvc.Http.Cookies;
 import play.mvc.Http.Request;
+import play.mvc.Http.Response;
 import views.html.*;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -35,12 +38,16 @@ import play.data.Form.*;
 import java.sql.*;
 
 import org.apache.commons.dbcp.*;
+import org.apache.commons.logging.LogFactory;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.slf4j.LoggerFactory;
+
+import controllers.utils.ElasticFetcher;
 
 //http://www.tutorialspoint.com/postgresql/postgresql_java.htm
 
@@ -58,11 +65,25 @@ public class HomeFoodGateKeeperService extends Controller {
 		return ok(listing.render());
 	}
 
+	public static Result search(String name) {
+		ElasticFetcher ef = new ElasticFetcher();
+		String url = "-XGET https://ihscrydx:lujdwgoxxdpc03p7@spruce-7122461.us-east-1.bonsai.io/places/bangalore/_search?q=_type:B*&pretty&size=1000";
+		return ok(ef.response(url,name));
+	}
+	
+	public static Result searchfood(String place) {
+		System.out.println("place " + place);
+		ElasticFetcher ef = new ElasticFetcher();
+		String url = "-XGET https://ihscrydx:lujdwgoxxdpc03p7@spruce-7122461.us-east-1.bonsai.io/places/bangalore/_search?q=_type:B*&pretty&size=1000";
+		return ok("");
+	}
+	
 	public static Result addRecipe() {
 		String name = request().body().asMultipartFormData().asFormUrlEncoded().get("name")[0];
 		return ok(addrecipe.render());
 	}
 
+	
 	public static Result createChef() {
 		boolean success=true;
 		Map<String, String[]> requestData = request().body().asFormUrlEncoded();
@@ -76,34 +97,25 @@ public class HomeFoodGateKeeperService extends Controller {
 				mc.setName(name);
 			}
 			try{
-				init();
+				/*init();
 				Connection connection = connectionPool.getConnection();
 				Statement stmt = connection.createStatement();
 				stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
 				stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
 				ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-
-				Settings settings = ImmutableSettings.settingsBuilder()
-						.put("cluster.name", "myClusterName").build();
-				Client client =    new TransportClient(settings)
-				.addTransportAddress(new InetSocketTransportAddress("spruce-7122461.us-east-1.bonsai.io", 443))
-				;
-
-				String json = "{" +
-						"\"user\":\"kimchy\"," +
-						"\"postDate\":\"2013-01-30\"," +
-						"\"message\":\"trying out Elasticsearch\"" +
-						"}";
-
-				IndexResponse response = client.prepareIndex("twitter", "tweet")
-						.setSource(json)
-						.execute()
-						.actionGet();
-
-				client.close();
-				while (rs.next()) {
-					System.out.println("Read from DB: " + rs.getTimestamp("tick") + "\n");
+				*/
+				if(request().cookies().get("theme")!=null){
+					System.out.println("cookies "+request().cookies().get("theme").value());
+					printCookie(request().cookies());
+				}else{
+					System.out.println("cookies is null ");
+						
 				}
+				String cookieId="";
+				setCookie(response(), cookieId);
+				/*while (rs.next()) {
+					System.out.println("Read from DB: " + rs.getTimestamp("tick") + "\n");
+				}*/
 			}catch(Exception e){
 				e.printStackTrace();
 			}
@@ -118,6 +130,16 @@ public class HomeFoodGateKeeperService extends Controller {
 			return ok(failure.render());
 
 		}
+	}
+
+	private static void setCookie(Response response, String cookieId) {
+
+		response().setCookie("theme", "blue");
+		
+	}
+
+	private static void printCookie(Cookies cookies) {
+		System.out.println("");
 	}
 
 	private static void init() {
@@ -145,7 +167,6 @@ public class HomeFoodGateKeeperService extends Controller {
 	}
 
 	private static boolean  createChefAttempt(Request request) {
-
 		return false;
 	}
 

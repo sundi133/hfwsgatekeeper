@@ -42,7 +42,7 @@
 
 <link rel="stylesheet"
 	href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<style>
+<style type="text/css">
 nav.primary {
 	display: table;
 	margin: 0 auto;
@@ -149,65 +149,75 @@ button {
 }
 </style>
 
+<script src="//code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"
+	type="text/javascript"></script>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+<script>
+  $(function() {
+ 
+    $( "#findfoodfrom" ).autocomplete({
+      source: function( request, response ) {
+        $.ajax({
+          url: "./search?name="+request.term,
+          data: request.term,
+          success: function( data ) {
+                var parsed = JSON.parse(data);
+                var newArray = new Array(parsed.length);
+                var i = 0;
+                parsed.forEach(function (entry) {
+                    newArray[i] = parsed[i];
+                    i++;
+                });
+
+                response(newArray);
+          }
+        });
+      },
+      minLength: 1,
+      
+      open: function() {
+        $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+      },
+      close: function() {
+        $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+      }
+    });
+  
+  });
+
+  </script>
 </head>
 
 
 <body>
 
 	<div id="wrap">
-        <ul id="nav">
-        
-           <li><a href="./listRecipe">List Recipe</a></li>
-           <li> <a href="./signup">SignIn / SignUp</a></li>
-           
-            <a href="./"><img alt="./" src="assets/images/homeFoodLogo5.png"
-                style="height: 50px;"></a>
-        </ul>
-    </div>
+		<ul id="nav">
+
+			<li><a href="./listRecipe">List Recipe</a></li>
+			<li><a href="./signup">SignIn / SignUp</a></li>
+
+			<a href="./"><img alt="./" src="assets/images/homeFoodLogo5.png"
+				style="height: 50px;"></a>
+		</ul>
+	</div>
 
 	<center>
-		
-		<div class="container">
-		<div>
-		<form action="./search">
-            <input type="text" class="large"
-                placeholder="Type Your Address Here ..." />
-            <button>Search Food in Your Area</button>
-        </form>
-        </div>
-				<div class="five columns omega">
-					<fieldset>
-						<legend style="font-size: 12px">Check Out our Favourite
-							Chefs</legend>
-						<img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/1/1938/small.png?1318258804"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/1/1938/small.png?1318258804"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/1/1938/small.png?1318258804"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650"
-							alt="avatar" /> <img class="avatar"
-							src="http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757"
-							alt="avatar" />
-					</fieldset>
-				</div>
-		</div>
 
+		<div class="container">
+			<div>
+				<form action="./searchfood" method="GET" >
+					<input type="text" class="large" id="findfoodfrom" name="place"
+						autocomplete="on"
+						placeholder="Type Your Address Here "
+						style="width: 42%; display: block; border: 2px solid #CCC" /> <input
+						type="submit" value="Search Food" style="width: 12%"></input>
+				</form>
+			</div>
+		</div>
 	</center>
 
 </body>
