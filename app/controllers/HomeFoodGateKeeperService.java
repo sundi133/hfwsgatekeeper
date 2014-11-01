@@ -75,7 +75,7 @@ public class HomeFoodGateKeeperService extends Controller {
 		System.out.println("place " + place);
 		ElasticFetcher ef = new ElasticFetcher();
 		String url = "-XGET https://ihscrydx:lujdwgoxxdpc03p7@spruce-7122461.us-east-1.bonsai.io/places/bangalore/_search?q=_type:B*&pretty&size=1000";
-		return ok("");
+		return ok(searchfood.render());
 	}
 	
 	public static Result addRecipe() {
