@@ -336,7 +336,7 @@ table td {
     padding: 18px;
 	border-top: 1px solid #ffffff;
 	border-bottom: 1px solid #e0e0e0;
-	border-left: 1px solid #e0e0e0;
+	border-left: 1px solid rgba(224, 224, 224, 0);
 	background: #fafafa;
 	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb),
 		to(#fafafa));
@@ -375,9 +375,6 @@ table tr:hover td {
 	background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
 }
 
-body {
-	background: url(http://subtlepatterns.com/patterns/project_papper.png);
-}
 
 .button {
 	font-family: 'Droid Sans', sans-serif;
@@ -639,9 +636,12 @@ body {
       }
     });
   
+    $(document).prop('title', 'zaarlo');
+ 
   });
 
-  </script>
+</script>
+  
 
 <link
 	href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700'
@@ -666,39 +666,61 @@ body {
 	<center>
 
 		<div class="container">
-			<div>
+			
+            <div align="left">
+                  <table cellspacing='0'>
+                    <!-- cellspacing='0' is important, must stay -->
+
+                    <!-- Table Header -->
+                    <thead>
+                        <tr>
+                            <th>Profile Information</th>
+                            
+                        </tr>
+                    </thead>
+                    <!-- Table Header -->
+
+                    <!-- Table Body -->
+                    <tbody>
+
+                        <tr>
+                        </tr>
+                     </tbody>
+                 </table>
+            </div>
+            <div>
 
 
-				<table cellspacing='0'>
-					<!-- cellspacing='0' is important, must stay -->
+                <table cellspacing='0'>
+                    <!-- cellspacing='0' is important, must stay -->
 
-					<!-- Table Header -->
-					<thead>
-						<tr>
-							<th>Recipe Name</th>
-							<th>Recipe Ingredients</th>
-							<th>Recipe Visual</th>
-							<th style="white-space:nowrap;">Recipe Price(Rs)</th>
-							<th>Add To Cart</th>
-						</tr>
-					</thead>
-					<!-- Table Header -->
+                    <!-- Table Header -->
+                    <thead>
+                        <tr>
+                            <th>Recipe Name</th>
+                            <th>Recipe Ingredients</th>
+                            <th>Recipe Visual</th>
+                            <th style="white-space:nowrap;">Recipe Price(Rs)</th>
+                            <th>Add To Cart</th>
+                        </tr>
+                    </thead>
+                    <!-- Table Header -->
 
-					<!-- Table Body -->
-					<tbody>
+                    <!-- Table Body -->
+                    <tbody>
 
-						<tr>
-							<td>Chicken Masala</td>
-							<td><span style="float: left;text-align:-webkit-auto"> gravy type, chicken,
-									dahi, tomato,ginger garlic paste, onion, chilly powder </span></td>
-							<td>
-							         <div class="img-circular"></div>
-							</td>
-							<td style="white-space:nowrap;">
-							     <h4>150</h4>
-							</td>
-	                        <td>					  
-						                 <button class="button-xlarge pure-button">Add to Cart</button>
+                        <tr>
+                            <td>Chicken Masala</td>
+                            <td><span style="float: left;text-align:-webkit-auto"> gravy type, chicken,
+                                    dahi, tomato,ginger garlic paste, onion, chilly powder </span></td>
+                            <td>
+                                     <div class="img-circular"></div>
+                            </td>
+                            <td style="white-space:nowrap;">
+                                 <h3>150</h3>
+                            </td>
+                            <td>                      
+                                         <button class="button-xlarge pure-button">Add to Cart</button>
                             </td>
                         </tr>
                         <!-- Table Row -->
@@ -725,7 +747,6 @@ body {
 
                 </table>
             </div>
-            <div></div>
         </div>
     </center>
 
